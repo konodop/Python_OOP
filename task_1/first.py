@@ -91,7 +91,7 @@ class Book:
         else:
             print("сложно")
 
-    def find_reading_speed(self, days: int) -> None:
+    def calculate(self, days: int) -> None:
         """
         :param days: Количество дней за которое нужно прочитать книгу
         """
@@ -110,7 +110,7 @@ class Main:
 
     book1.set_title("Капитанская дочка")
     book1.set_author("А. С. Пушкин")
-    book1.set_page_count(320)
+    book1.set_pages(320)
 
     book1.show_info()
 
@@ -126,9 +126,10 @@ class Menu:
         self.books = (Book("Мастер и Маргарита", "М. А. Булгаков", 480),
                       Book("Мцыри", "М. Ю. Лермонтов", 40))
 
-    def run(self):
+    def run(self) -> None:
         """Метод запуска меню"""
         flag = 1
+
         while flag:
             print("Выберите команду")
             print("1. Показать все книги")
@@ -137,7 +138,7 @@ class Menu:
             print("4. Узнать сложность книги")
             print("0. Выход из программы")
 
-            choice = input("Выберите действие: \n")
+            choice = input()
 
             if choice == "1":
                 print("Список книг:")
@@ -168,7 +169,7 @@ class Menu:
                 flag = 0
 
             else:
-                print("Неверная команда, попробуйте снова.")
+                print("Неверная команда")
 
 
 if __name__ == '__main__':
