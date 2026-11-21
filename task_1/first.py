@@ -1,5 +1,14 @@
 class Book:
-    def __init__(self, title: str = None, author: str = None, pages: int = None):
+    """Класс, содержащий информацию о книге"""
+
+    def __init__(self, title: str = None, author: str = None, pages: int = None) -> None:
+        """ Метод инициализации объекта класса
+
+        Args:
+            :param title:    Название книги
+            :param author:   Автор книги
+            :param pages:    Количество страниц
+        """
         # 1 и 2 задание
         if title or author or pages:
 
@@ -18,40 +27,80 @@ class Book:
             self.__pages = 0
 
     # 3 задание
-    def get_title(self):
+    def get_title(self) -> str:
+        """Геттер названия
+
+        Returns:
+            str: название книги
+        """
+
         return self.__title
 
-    def get_author(self):
+    def get_author(self) -> str:
+        """Геттер автора
+
+        Returns:
+            str: автор книги
+        """
+
         return self.__author
 
-    def get_page_count(self):
+    def get_page_count(self) -> int:
+        """Геттер количества страниц
+
+        Returns:
+            str: количество страниц
+        """
+
         return self.__pages
 
-    def set_title(self, title: str):
+    def set_title(self, title: str) -> None:
+        """Сеттер Названия
+
+        Args:
+            title: название
+        """
         self.__title = title
 
-    def set_author(self, author: str):
+    def set_author(self, author: str) -> None:
+        """Сеттер автора
+
+        Args:
+            author: автор
+        """
         self.__author = author
 
-    def set_page_count(self, page_count: int):
-        self.__pages = page_count
+    def set_pages(self, pages: int) -> None:
+        """Сеттер количества страниц
+
+        Args:
+            pages: количество страниц
+        """
+        self.__pages = pages
 
     # 4 задание
-    def show_info(self):
+    def show_info(self) -> None:
+        """Показывает всю информацию о книге"""
+
         print(f"Книга: {self.__title} \n Автор: {self.__author} \n Страниц: {self.__pages} \n")
 
     # 6 задание
-    def check_difficulty(self):
+    def check_difficulty(self) -> None:
         if self.__pages < 250:
             print("Не сложно")
         else:
             print("сложно")
 
-    def find_reading_speed(self, days: int):
+    def find_reading_speed(self, days: int) -> None:
+        """
+        :param days: Количество дней за которое нужно прочитать книгу
+        """
         print("Читать", round(self.__pages / days), "страниц в день")
 
 
 class Main:
+    """ Класс с двумя классами для демонстрации конструкторов методов и операций"""
+
     # 5 задание
     book1 = Book()
     book2 = Book("Война и мир", "Л. Н. Толстой", 1300)
@@ -69,11 +118,16 @@ class Main:
 # 7 задание
 
 class Menu:
+    """Класс с меню, и возможностью выбора действия пользователем действий"""
+
     def __init__(self):
+        """ Метод инициализации объекта класса"""
+
         self.books = (Book("Мастер и Маргарита", "М. А. Булгаков", 480),
                       Book("Мцыри", "М. Ю. Лермонтов", 40))
 
-    def start(self):
+    def run(self):
+        """Метод запуска меню"""
         flag = 1
         while flag:
             print("Выберите команду")
@@ -121,4 +175,4 @@ if __name__ == '__main__':
     Main()
 
     menu = Menu()
-    menu.start()
+    menu.run()
